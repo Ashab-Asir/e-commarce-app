@@ -1,15 +1,14 @@
 import React from "react";
 import FilterSection from "./FilterSection";
-import ProductGrid from "./product/ProductGrid";
+import { ProductGrid } from "../product";
+import Heading from "./Heading";
 
-export default function LeftPanel({ addToCartProduct }) {
+export default function LeftPanel() {
   return (
     <div>
-      <div>
-        <h1>Simple Ecommerce</h1>
-      </div>
+      <Heading></Heading>
       <FilterSection></FilterSection>
-      <ProductGrid addToCartProduct={addToCartProduct}></ProductGrid>
+      <ProductGrid></ProductGrid>
     </div>
   );
 }

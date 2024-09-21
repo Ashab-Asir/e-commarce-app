@@ -204,15 +204,11 @@ const products = [
   },
 ];
 
-export default function ProductGrid({ addToCartProduct }) {
+export default function ProductGrid() {
   return (
     <div className="productGrid">
       {products.map((product) => (
-        <ProductCard
-          addToCartProduct={addToCartProduct}
-          key={product.id}
-          product={product}
-        ></ProductCard>
+        <ProductCard key={product.id} product={product}></ProductCard>
       ))}
     </div>
   );

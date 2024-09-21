@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import "./ProductCard.css";
-export default function ProductCard({ product, addToCartProduct }) {
+import { CartContext } from "../../contexts/CartContext";
+export default function ProductCard({ product }) {
+  const { addToCartProduct } = useContext(CartContext);
   return (
     <div className="productCard">
       <img src={product.image} width="200px" alt="" />

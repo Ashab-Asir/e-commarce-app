@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Cart.css";
 import CartItem from "./CartItem";
-export default function Cart({ carts, removeProductFromCart }) {
+import { CartContext } from "../../contexts";
+export default function Cart() {
+  const { carts, removeProductFromCart } = useContext(CartContext);
   return (
     <div>
       {carts.map((cartItem) => (
         <li key={cartItem.id}>
           <CartItem
-            removeProductFromCart={removeProductFromCart}
             cartItem={cartItem}
+            removeProductFromCart={removeProductFromCart}
           ></CartItem>
         </li>
       ))}

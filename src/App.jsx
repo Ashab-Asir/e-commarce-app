@@ -1,7 +1,7 @@
 import "./App.css";
-import LeftPanel from "./components/leftPanel/LeftPanel";
-import RightPanel from "./components/rightPanel/RightPanel";
 import { useState } from "react";
+import { CartContext } from "./contexts";
+import { LeftPanel, RightPanel } from "./components/";
 
 function App() {
   const [carts, setCart] = useState([]);
@@ -32,13 +32,14 @@ function App() {
     setCart([...carts]);
   }
   return (
-    <div className="App">
-      <LeftPanel addToCartProduct={addToCartProduct}></LeftPanel>
-      <RightPanel
-        removeProductFromCart={removeProductFromCart}
-        carts={carts}
-      ></RightPanel>
-    </div>
+    <CartContext.Provider
+      value={{ carts, addToCartProduct, removeProductFromCart }}
+    >
+      <div className="App">
+        <LeftPanel></LeftPanel>
+        <RightPanel></RightPanel>
+      </div>
+    </CartContext.Provider>
   );
 }
 
