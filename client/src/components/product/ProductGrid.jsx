@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
-import { useProducts } from "../../hooks";
+import { useProducts } from "../../api/queries";
 
 export default function ProductGrid() {
   const { products } = useProducts();
