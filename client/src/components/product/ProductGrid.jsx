@@ -2,19 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
+import { ProductServices } from "../../api/services";
 
 export default function ProductGrid() {
   const [products, setProducts] = useState([]);
+  const loadProducts = async () => {
+    const products = ProductServices.getProducts();
+    setProducts(products);
+  };
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/products")
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((err) => {
-        alert("Failed to load products");
-        console.error(err);
-      });
+    loadProducts();
   }, []);
   return (
     <div className="productGrid">
