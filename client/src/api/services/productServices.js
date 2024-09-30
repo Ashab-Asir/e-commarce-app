@@ -1,4 +1,3 @@
-import axios from "axios";
-
+import { http } from "../common/http";
 export const getProducts = () =>
-  axios.get("http://localhost:5000/api/products").then((res) => res.data);
+  http.get("/api/products").then((res) => res.data);
