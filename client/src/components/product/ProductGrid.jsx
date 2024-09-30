@@ -9,6 +9,10 @@ export default function ProductGrid() {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
+      })
+      .catch((err) => {
+        alert("Failed to load products");
+        console.error(err);
       });
   }, []);
   return (
