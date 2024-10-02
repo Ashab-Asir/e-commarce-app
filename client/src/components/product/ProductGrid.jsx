@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
 import { ProductServices } from "../../api/services";
@@ -6,7 +6,7 @@ import { ProductServices } from "../../api/services";
 export default function ProductGrid() {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(false);
-  const loadProducts = async () => {
+  const loadProducts = useCallback(async () => {
     try {
       setLoading(true);
       const Products = await ProductServices.getProducts();
@@ -17,10 +17,10 @@ export default function ProductGrid() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
   useEffect(() => {
     loadProducts();
-  }, []);
+  }, [loadProducts]);
   return (
     <div className="productGrid">
       {isLoading ? (
