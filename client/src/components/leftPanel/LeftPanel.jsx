@@ -1,8 +1,7 @@
 import React from "react";
 import FilterSection from "./FilterSection";
 import { ProductGrid } from "../product";
-import Heading from "./Heading";
-
+import Heading from "../Heading/Heading";
 export default function LeftPanel() {
   return (
     <div>

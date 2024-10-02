@@ -1,0 +1,75 @@
+/* Container for the entire Contact Us section */
+.contact-container {
+    font-family: 'Arial, sans-serif';
+    padding: 20px;
+    max-width: 900px;
+    margin: 40px auto; /* Added margin-top of 40px */
+    background-color: #f4f6f9; /* Light background color for the whole section */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  }
+  
+  /* Heading style */
+  .contact-heading {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  /* Flex container for the content */
+  .contact-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #ffffff; /* White background for the content area */
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  /* Contact information section */
+  .contact-info {
+    flex: 1;
+    min-width: 250px;
+    margin-right: 30px;
+    background-color: #e9ecef; /* Light gray background for the contact info */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .contact-info h3 {
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p {
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  /* Map section */
+  .contact-map {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  /* Style for the iframe */
+  .map-iframe {
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for the map */
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .contact-info {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+    
+    .contact-map {
+      margin-bottom: 20px;
+    }
+  }
+  
