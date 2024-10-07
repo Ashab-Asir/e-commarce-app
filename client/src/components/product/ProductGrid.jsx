@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
 import { ProductServices } from "../../api/services";
+import { Box } from "../../api/common/components";
 
 export default function ProductGrid() {
   const [products, setProducts] = useState([]);
@@ -22,7 +23,13 @@ export default function ProductGrid() {
     loadProducts();
   }, [loadProducts]);
   return (
-    <div className="productGrid">
+    <Box
+      sx={{
+        display: "flex",
+        gap: 3,
+        flexWrap: "wrap",
+      }}
+    >
       {isLoading ? (
         <h1>Loading</h1>
       ) : (
@@ -30,6 +37,6 @@ export default function ProductGrid() {
           <ProductCard key={product.id} product={product}></ProductCard>
         ))
       )}
-    </div>
+    </Box>
   );
 }

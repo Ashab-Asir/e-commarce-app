@@ -1,4 +1,5 @@
 import React from "react";
+import { Box, Button } from "../../api/common/components";
 const categories = [
   "Laptops",
   "Gaming",
@@ -12,13 +13,10 @@ const categories = [
 
 export default function FilterSection() {
   return (
-    <div>
-      <div>
-        {categories.map((categorie) => (
-          <button key={categorie}>{categorie}</button>
-        ))}
-      </div>
-      <div></div>
-    </div>
+    <Box display="flex" gap={2} flex={"wrap"}>
+      {categories.map((categorie) => (
+        <Button key={categorie}>{categorie}</Button>
+      ))}
+    </Box>
   );
 }

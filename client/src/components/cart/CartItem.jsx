@@ -1,10 +1,20 @@
 import React from "react";
+import { Box, Button, ListItemText } from "../../api/common/components";
 
 export default function CartItem({ cartItem, removeProductFromCart }) {
   return (
-    <div className="cart-item">
-      <p>{`${cartItem.title} x ${cartItem.quantity}`}</p>
-      <button onClick={() => removeProductFromCart(cartItem.id)}>remove</button>
-    </div>
+    <Box className="cart-item">
+      <ListItemText
+        primary={`${cartItem.title} x ${cartItem.quantity}`}
+        secondary={`$${cartItem.price * cartItem.quantity}`}
+      ></ListItemText>
+      <Button
+        onClick={() => removeProductFromCart(cartItem.id)}
+        variant="outlined"
+        color="error"
+      >
+        remove
+      </Button>
+    </Box>
   );
 }

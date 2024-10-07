@@ -1,13 +1,15 @@
 import { Cart } from "../cart";
-
+import { Box, Button, Stack, Typography } from "../../api/common/components";
 export default function RightPanel() {
   return (
-    <div>
-      <h1>cart</h1>
-      <button>checkout</button>
+    <Stack>
+      <Typography variant="h4">Cart</Typography>
+      <Box>
+        <Button variant="contained">checkout</Button>
+      </Box>
       <ul>
         <Cart></Cart>
       </ul>
-    </div>
+    </Stack>
   );
 }

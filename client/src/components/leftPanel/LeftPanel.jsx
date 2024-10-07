@@ -2,12 +2,13 @@ import React from "react";
 import FilterSection from "./FilterSection";
 import { ProductGrid } from "../product";
 import Heading from "../Heading/Heading";
+import { Stack } from "../../api/common/components";
 export default function LeftPanel() {
   return (
-    <div>
+    <Stack spacing={4}>
       <Heading></Heading>
       <FilterSection></FilterSection>
       <ProductGrid></ProductGrid>
-    </div>
+    </Stack>
   );
 }
