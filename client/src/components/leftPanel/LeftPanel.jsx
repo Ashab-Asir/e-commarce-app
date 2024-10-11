@@ -5,7 +5,7 @@ import Heading from "../Heading/Heading";
 import { Stack } from "../../api/common/components";
 export default function LeftPanel() {
   return (
-    <Stack spacing={4}>
+    <Stack spacing={10}>
       <Heading></Heading>
       <FilterSection></FilterSection>
       <ProductGrid></ProductGrid>

@@ -1,3 +1,2 @@
-export * from "./leftPanel";
-export * from "./rightPanel";
+export * from "./leftPanel/";
 export * from "./cart";

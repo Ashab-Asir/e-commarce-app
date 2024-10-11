@@ -1,2 +1,3 @@
 import AddBoxIcon from "@mui/icons-material/AddBox";
-export { AddBoxIcon };
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+export { AddBoxIcon, ShoppingCartIcon };
