@@ -1,14 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   AppBar,
   Button,
-  IconButton,
   Toolbar,
   Typography,
 } from "../../api/common/components";
-import { ShoppingCartIcon } from "../../api/common/icons";
 import CartMenu from "./CartMenu";
+import ProfileMenu from "./ProfileMenu";
 export default function Heading() {
   return (
     <AppBar>
@@ -23,6 +21,7 @@ export default function Heading() {
           ContactUs
         </Button>
         <CartMenu></CartMenu>
+        <ProfileMenu></ProfileMenu>
       </Toolbar>
     </AppBar>
   );
