@@ -31,7 +31,7 @@ export default function ProfileMenu() {
           <Button href="admin/inventory">Inventory</Button>
         </MenuItem>
         <MenuItem>
-          <a href="admin/addproducts">Add Product</a>
+          <a href="/admin/addproducts">Add Product</a>
         </MenuItem>
         <MenuItem>
           <a href="/admin">Profile</a>

@@ -16,6 +16,7 @@ import {
   Menu,
   MenuItem,
   MenuList,
+  ButtonGroup,
 } from "@mui/material";
 
 export {
@@ -36,4 +37,5 @@ export {
   Menu,
   MenuItem,
   MenuList,
+  ButtonGroup,
 };
