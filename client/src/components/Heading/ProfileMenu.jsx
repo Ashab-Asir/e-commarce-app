@@ -1,10 +1,12 @@
 import { useState } from "react";
 import {
   Avatar,
+  Button,
   IconButton,
   Menu,
   MenuItem,
 } from "../../api/common/components";
+import { Link, NavLink } from "react-router-dom";
 
 export default function ProfileMenu() {
   const [openAdminMenu, setOpenAdminMenu] = useState(false);
@@ -25,9 +27,15 @@ export default function ProfileMenu() {
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         onClose={toggleAdminMenu}
       >
-        <MenuItem>Dashboard</MenuItem>
-        <MenuItem>Inventory</MenuItem>
-        <MenuItem>Profile</MenuItem>
+        <MenuItem>
+          <Button href="admin/inventory">Inventory</Button>
+        </MenuItem>
+        <MenuItem>
+          <a href="admin/addproducts">Add Product</a>
+        </MenuItem>
+        <MenuItem>
+          <a href="/admin">Profile</a>
+        </MenuItem>
       </Menu>
     </>
   );
