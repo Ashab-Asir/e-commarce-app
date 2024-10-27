@@ -41,6 +41,7 @@ export default function ProductsTable() {
             headerName: "Price",
             type: "number",
             width: 150,
+            valueFormatter: (value) => `$${value}`,
           },
           {
             field: "quantity",
