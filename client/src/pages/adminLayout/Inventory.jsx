@@ -1,5 +1,11 @@
 import React from "react";
+import { ProductsTable } from "../../components/product";
+import { Box } from "../../api/common/components";
 
 export function Inventory() {
-  return <div>inventory</div>;
+  return (
+    <Box>
+      <ProductsTable></ProductsTable>
+    </Box>
+  );
 }

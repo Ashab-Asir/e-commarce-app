@@ -1,6 +1,9 @@
 import { ProductServices } from "../services";
 
 export function useProducts() {
-  const products = ProductServices.getProducts();
-  return { products };
+  const getProducts = async () => {
+    const products = await ProductServices.getProducts();
+    return products;
+  };
+  return { getProducts };
 }

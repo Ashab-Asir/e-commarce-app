@@ -6,7 +6,7 @@ import { Button, ButtonGroup, Stack } from "../../api/common/components/";
 export function AdminLayout() {
   return (
     <CartProvider>
-      <Stack width={1} px={4} spacing={2}>
+      <Stack width={1} margin={4} py={15} spacing={2}>
         <Heading></Heading>
         <h1>Welcome Admin Dashboard</h1>
         <ButtonGroup>
