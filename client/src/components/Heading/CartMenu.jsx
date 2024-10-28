@@ -7,6 +7,7 @@ import { CartContext } from "../../contexts";
 export default function CartMenu() {
   const [openCart, setOpenCart] = useState(false);
   const { carts } = useContext(CartContext);
+  console.log(carts);
   const toggleCart = () => {
     setOpenCart((prev) => !prev);
   };

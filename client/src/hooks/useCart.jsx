@@ -29,8 +29,8 @@ export function useCart() {
     setCart([...carts]);
   }
   return {
+    carts,
     addToCartProduct,
     removeProductFromCart,
-    carts,
   };
 }

@@ -17,6 +17,8 @@ import {
   MenuItem,
   MenuList,
   ButtonGroup,
+  Modal,
+  TextField,
 } from "@mui/material";
 
 export {
@@ -38,4 +40,6 @@ export {
   MenuItem,
   MenuList,
   ButtonGroup,
+  Modal,
+  TextField,
 };
