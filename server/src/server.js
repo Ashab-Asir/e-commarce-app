@@ -272,7 +272,7 @@ app.put("/api/products/:id", (req, res) => {
   const product = products.find((p) => p.id === parseInt(req.params.id));
   if (!product) return res.status(404).json({ message: "Product not found" });
 
-  product.name = req.body.name || product.name;
+  product.title = req.body.title || product.title;
   product.quantity = req.body.quantity || product.quantity;
   product.price = req.body.price || product.price;
   product.vendor = req.body.vendor || product.vendor;

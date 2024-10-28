@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button } from "../../api/common/components";
 import { useProducts } from "../../api/queries/";
+import { ProductServices } from "../../api/services";
 
-export default function ProductsTable() {
+export default function ProductsTable({ onSelectProduct }) {
   const { getProducts } = useProducts();
   const [products, setProducts] = useState([]);
 
@@ -19,15 +20,33 @@ export default function ProductsTable() {
       title: product.title,
       price: product.price,
       quantity: product.quantity,
+      data: product,
     }));
-  const ProductRowActions = ({ row }) => {
+
+  const handleDeleteProduct = (id) => {
+    if (window.confirm("Are you sure you want to delete this product?")) {
+      ProductServices.deleteProduct(id)
+        .then(() => {
+          setProducts((prevProducts) =>
+            prevProducts.filter((p) => p.id !== id)
+          );
+          alert("Product deleted successfully");
+        })
+        .catch(() => alert("Failed to delete product"));
+    }
+  };
+
+  const ProductRowActions = ({ product }) => {
     return (
       <Box>
-        <Button>Edit</Button>
-        <Button color="error">Delete</Button>
+        <Button onClick={() => onSelectProduct(product)}>Edit</Button>
+        <Button color="error" onClick={() => handleDeleteProduct(product.id)}>
+          Delete
+        </Button>
       </Box>
     );
   };
+
   return (
     <Box width={"80%"} margin={"auto"}>
       <DataGrid
@@ -44,18 +63,8 @@ export default function ProductsTable() {
           },
         }}
         columns={[
-          {
-            field: "title",
-            headerName: "Product Name",
-            flex: 1,
-          },
-          {
-            field: "price",
-            headerName: "Price",
-            type: "number",
-            width: 150,
-            valueFormatter: (value) => `$${value}`,
-          },
+          { field: "title", headerName: "Product Name", flex: 1 },
+          { field: "price", headerName: "Price", type: "number", width: 150 },
           {
             field: "quantity",
             headerName: "Quantity",
@@ -67,7 +76,7 @@ export default function ProductsTable() {
             field: "actions",
             headerName: "",
             minWidth: 200,
-            renderCell: () => <ProductRowActions></ProductRowActions>,
+            renderCell: ({ row }) => <ProductRowActions product={row.data} />,
           },
         ]}
       />

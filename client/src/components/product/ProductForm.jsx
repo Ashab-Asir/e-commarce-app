@@ -6,53 +6,55 @@ import {
   TextField,
   Typography,
 } from "../../api/common/components";
-export function ProductForm({ onSubmitProductForm }) {
-  const initialProduct = {
-    id: "",
-    title: "",
-    price: 0,
-    description: "",
-    category: "",
-    image: "",
-    quantity: 0,
-  };
-  const [product, setProduct] = useState(initialProduct);
+
+export function ProductForm({
+  placeHolderproduct,
+  onSubmitProductForm,
+  isEditing,
+}) {
+  const [product, setProduct] = useState(placeHolderproduct);
 
   const handelOnChange = (e) => {
     const fieldName = e.target.name;
     setProduct({ ...product, [fieldName]: e.target.value });
   };
+
   const handleOnSubmitProductForm = (e) => {
     e.preventDefault();
-    console.log(product);
     onSubmitProductForm(product);
   };
+
   return (
     <div>
       <form onSubmit={handleOnSubmitProductForm}>
         <Stack spacing={2} px={8} py={6}>
-          <Typography variant="h3">form</Typography>
+          <Typography variant="h3">
+            {isEditing ? "Edit Product" : "Add Product"}
+          </Typography>
           <TextField
             label="Name"
             required
             name="title"
             onChange={handelOnChange}
-          ></TextField>
+            value={product.title}
+          />
           <TextField
             label="Price"
             required
             name="price"
             onChange={handelOnChange}
-          ></TextField>
+            value={product.price}
+          />
           <TextField
             label="Quantity"
             required
             name="quantity"
             onChange={handelOnChange}
-          ></TextField>
+            value={product.quantity}
+          />
           <Box>
             <Button variant="outlined" type="submit">
-              Add
+              {isEditing ? "Save Changes" : "Add Product"}
             </Button>
             <Button variant="outlined" color="error" type="reset">
               Cancel
