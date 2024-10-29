@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box, Button } from "../../api/common/components";
+import { Box, Button, Snackbar, Alert } from "../../api/common/components";
 import { useProducts } from "../../api/queries/";
 import { ProductServices } from "../../api/services";
 
 export default function ProductsTable({ onSelectProduct }) {
   const { getProducts } = useProducts();
   const [products, setProducts] = useState([]);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   useEffect(() => {
     getProducts()
@@ -30,12 +32,15 @@ export default function ProductsTable({ onSelectProduct }) {
           setProducts((prevProducts) =>
             prevProducts.filter((p) => p.id !== id)
           );
-          alert("Product deleted successfully");
+          setSnackbarMessage("Deleted Product");
+          setSnackbarOpen(true);
         })
         .catch(() => alert("Failed to delete product"));
     }
   };
-
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
   const ProductRowActions = ({ product }) => {
     return (
       <Box>
@@ -80,6 +85,19 @@ export default function ProductsTable({ onSelectProduct }) {
           },
         ]}
       />
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+      >
+        <Alert
+          onClose={handleSnackbarClose}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }
