@@ -263,6 +263,7 @@ app.post("/api/products", (req, res) => {
     price: req.body.price,
     category: req.body.category,
     image: req.body.image,
+    description: req.body.description,
   };
 
   products.push(newProduct);

@@ -30,9 +30,6 @@ export default function ProfileMenu() {
           <Button href="/admin/inventory">Inventory</Button>
         </MenuItem>
         <MenuItem>
-          <Button href="/admin/addproducts">Add Product</Button>
-        </MenuItem>
-        <MenuItem>
           <Button href="/admin">Profile</Button>
         </MenuItem>
       </Menu>
