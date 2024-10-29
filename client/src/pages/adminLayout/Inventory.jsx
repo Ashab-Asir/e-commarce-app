@@ -6,6 +6,7 @@ import {
   Modal,
   Snackbar,
   Alert,
+  Typography,
 } from "../../api/common/components";
 import { ProductForm } from "../../components/product/ProductForm";
 import { ProductServices } from "../../api/services";
@@ -40,11 +41,11 @@ export function Inventory() {
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
   };
+
   const onSubmitProductForm = (productPayload) => {
     if (isEditing) {
       ProductServices.updateProduct(selectedProduct.id, productPayload)
-        .then((data) => {
-          console.log(data);
+        .then(() => {
           setSnackbarMessage("Edited Product");
           setSnackbarOpen(true);
         })
@@ -52,8 +53,7 @@ export function Inventory() {
         .finally(() => closeProductForm());
     } else {
       ProductServices.addProducts(productPayload)
-        .then((data) => {
-          console.log(data);
+        .then(() => {
           setSnackbarMessage("Added Product");
           setSnackbarOpen(true);
         })
@@ -68,13 +68,36 @@ export function Inventory() {
   };
 
   return (
-    <Box>
-      <Button onClick={openAddProductForm} variant="outlined">
+    <Box p={{ xs: 2, md: 4, overflow: "hidden" }} width="80%" mx={"auto"}>
+      <Button
+        onClick={openAddProductForm}
+        variant="outlined"
+        sx={{
+          fontSize: { xs: "0.875rem", md: "1rem" },
+          width: { xs: "100%", sm: "auto" }, // Full width on mobile
+          mb: 2,
+        }}
+      >
         {isEditing ? "Edit Product" : "Add Product"}
       </Button>
+
       <ProductsTable onSelectProduct={openEditProductForm} />
+
       <Modal open={openProductForm} onClose={closeProductForm}>
-        <Box width={8 / 12} sx={{ bgcolor: "white", mx: "auto", my: "5%" }}>
+        <Box
+          width={{ xs: "90%", md: "60%", lg: "40%" }} // Responsive modal width
+          sx={{
+            bgcolor: "white",
+            mx: "auto",
+            my: "10%", // Center on screen
+            p: 3,
+            borderRadius: 1,
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="h6" mb={2}>
+            {isEditing ? "Edit Product" : "Add Product"}
+          </Typography>
           <ProductForm
             placeHolderproduct={selectedProduct}
             onSubmitProductForm={onSubmitProductForm}
@@ -82,10 +105,12 @@ export function Inventory() {
           />
         </Box>
       </Modal>
+
       <Snackbar
         open={snackbarOpen}
-        autoHideDuration={3000} // Duration for which snackbar is displayed
+        autoHideDuration={3000}
         onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }} // Position at the top-center
       >
         <Alert
           onClose={handleSnackbarClose}

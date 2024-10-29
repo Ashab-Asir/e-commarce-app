@@ -6,7 +6,6 @@ import {
   Menu,
   MenuItem,
 } from "../../api/common/components";
-import { Link, NavLink } from "react-router-dom";
 
 export default function ProfileMenu() {
   const [openAdminMenu, setOpenAdminMenu] = useState(false);
@@ -28,13 +27,13 @@ export default function ProfileMenu() {
         onClose={toggleAdminMenu}
       >
         <MenuItem>
-          <Button href="admin/inventory">Inventory</Button>
+          <Button href="/admin/inventory">Inventory</Button>
         </MenuItem>
         <MenuItem>
-          <a href="/admin/addproducts">Add Product</a>
+          <Button href="/admin/addproducts">Add Product</Button>
         </MenuItem>
         <MenuItem>
-          <a href="/admin">Profile</a>
+          <Button href="/admin">Profile</Button>
         </MenuItem>
       </Menu>
     </>

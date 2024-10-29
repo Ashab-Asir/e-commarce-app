@@ -52,6 +52,13 @@ export function ProductForm({
             onChange={handelOnChange}
             value={product.quantity}
           />
+          <TextField
+            label="Quantity"
+            required
+            name="category"
+            onChange={handelOnChange}
+            value={product.category}
+          />
           <Box>
             <Button variant="outlined" type="submit">
               {isEditing ? "Save Changes" : "Add Product"}

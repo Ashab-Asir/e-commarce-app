@@ -11,6 +11,7 @@ export default function ProductGrid({ products }) {
         display: "flex",
         gap: 3,
         flexWrap: "wrap",
+        justifyContent: "center",
       }}
     >
       {products.map((product) => (

@@ -227,7 +227,6 @@ let products = [
 // Get all products
 app.get("/api/products", (req, res) => {
   const { category } = req.query;
-  console.log(category);
   let filters = [];
   if (typeof category === "string") {
     filters = [category.toLowerCase()];
@@ -235,13 +234,11 @@ app.get("/api/products", (req, res) => {
     filters = category.map((category) => category.toLowerCase());
   }
   if (!filters.length) {
-    res.json(products);
+    return res.json(products);
   }
   res.json(
     products.filter((product) =>
-      product.categories.some((category) =>
-        filters.includes(category.toLowerCase())
-      )
+      filters.includes(product.category.toLowerCase())
     )
   );
 });

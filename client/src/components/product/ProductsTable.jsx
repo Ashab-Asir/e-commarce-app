@@ -79,7 +79,7 @@ export default function ProductsTable({ onSelectProduct }) {
           {
             align: "center",
             field: "actions",
-            headerName: "",
+            headerName: "Actions",
             minWidth: 200,
             renderCell: ({ row }) => <ProductRowActions product={row.data} />,
           },
