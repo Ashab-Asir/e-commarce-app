@@ -4,7 +4,6 @@ import {
   CardContent,
   Avatar,
   Typography,
-  Button,
   Box,
 } from "../../api/common/components";
 import { pink } from "@mui/material/colors";
@@ -21,7 +20,7 @@ const AdminProfileCard = () => {
     >
       <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
         <Avatar
-          src="https://via.placeholder.com/150" // replace with actual image URL if available
+          src="https://via.placeholder.com/150"
           alt="Samantha Jones"
           sx={{ width: 80, height: 80, border: `4px solid ${pink[50]}` }}
         />

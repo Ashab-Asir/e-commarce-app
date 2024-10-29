@@ -1,7 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductGrid.css";
-import { ProductServices } from "../../api/services";
 import { Box } from "../../api/common/components";
 
 export default function ProductGrid({ products }) {

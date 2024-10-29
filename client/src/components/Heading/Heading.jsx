@@ -79,8 +79,6 @@ export default function Heading() {
           <CartMenu />
           <ProfileMenu />
         </Box>
-
-        {/* Hamburger Menu Icon for Mobile */}
         <IconButton
           color="inherit"
           edge="end"
@@ -91,7 +89,6 @@ export default function Heading() {
         </IconButton>
       </Toolbar>
 
-      {/* Drawer for Mobile Menu */}
       <Drawer
         anchor="right"
         open={mobileOpen}

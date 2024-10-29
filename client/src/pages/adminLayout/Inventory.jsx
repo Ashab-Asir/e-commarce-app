@@ -74,7 +74,7 @@ export function Inventory() {
         variant="outlined"
         sx={{
           fontSize: { xs: "0.875rem", md: "1rem" },
-          width: { xs: "100%", sm: "auto" }, // Full width on mobile
+          width: { xs: "100%", sm: "auto" },
           mb: 2,
         }}
       >
@@ -85,11 +85,11 @@ export function Inventory() {
 
       <Modal open={openProductForm} onClose={closeProductForm}>
         <Box
-          width={{ xs: "90%", md: "60%", lg: "40%" }} // Responsive modal width
+          width={{ xs: "90%", md: "60%", lg: "40%" }}
           sx={{
             bgcolor: "white",
             mx: "auto",
-            my: "10%", // Center on screen
+            my: "10%",
             p: 3,
             borderRadius: 1,
             boxShadow: 3,
@@ -110,7 +110,7 @@ export function Inventory() {
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }} // Position at the top-center
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
         <Alert
           onClose={handleSnackbarClose}

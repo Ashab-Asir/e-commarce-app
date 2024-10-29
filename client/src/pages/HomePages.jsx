@@ -1,5 +1,4 @@
 import React from "react";
-import { CartProvider } from "../contexts";
 import { LeftPanel } from "../components";
 import { Box } from "../api/common/components";
 

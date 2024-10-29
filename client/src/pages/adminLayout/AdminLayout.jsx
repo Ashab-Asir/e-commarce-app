@@ -15,14 +15,13 @@ export function AdminLayout() {
       <Stack
         width={"90%"}
         spacing={2}
-        px={{ xs: 2, md: 4 }} // Responsive padding
+        px={{ xs: 2, md: 4 }}
         py={{ xs: 2, md: 4 }}
         alignItems="center"
         overflow={"hidden"}
-        mx={"auto"} // Center alignment on smaller screens
+        mx={"auto"}
       >
         <Heading />
-
         <Typography
           variant="h4"
           textAlign="center"
@@ -32,13 +31,13 @@ export function AdminLayout() {
         </Typography>
 
         <ButtonGroup
-          variant="contained" // Ensure this is explicitly set
-          color="primary" // Ensure this is explicitly set
+          variant="contained"
+          color="primary"
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" }, // Stack vertically on small screens
+            flexDirection: { xs: "column", sm: "row" },
             gap: { xs: 1, sm: 2 },
-            width: { xs: "100%", sm: "auto" }, // Full width on small screens
+            width: { xs: "100%", sm: "auto" },
           }}
         >
           <Button href="/admin/inventory" variant="text">
