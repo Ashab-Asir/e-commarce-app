@@ -21,6 +21,8 @@ import {
   TextField,
   Snackbar,
   Alert,
+  Card,
+  CardContent,
 } from "@mui/material";
 
 export {
@@ -46,4 +48,6 @@ export {
   TextField,
   Snackbar,
   Alert,
+  Card,
+  CardContent,
 };

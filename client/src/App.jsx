@@ -5,6 +5,7 @@ import ContactUs from "./pages/contacts/ContactUs";
 import { AddProducts, AdminLayout, Inventory } from "./pages/adminLayout";
 import { ProductDetails } from "./components/product";
 import { CartProvider } from "./contexts";
+import AdminProfileCard from "./pages/adminLayout/AdminProfileCard";
 
 function App() {
   return (
@@ -14,7 +15,10 @@ function App() {
           <Route path="/" element={<HomePages></HomePages>}></Route>
           <Route path="contactus" element={<ContactUs></ContactUs>}></Route>
           <Route path="admin" element={<AdminLayout></AdminLayout>}>
-            <Route index element={<h1>Admin Page</h1>}></Route>
+            <Route
+              index
+              element={<AdminProfileCard></AdminProfileCard>}
+            ></Route>
             <Route path="inventory" element={<Inventory></Inventory>}></Route>
             <Route
               path="addproducts"

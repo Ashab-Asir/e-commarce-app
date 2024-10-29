@@ -261,8 +261,8 @@ app.post("/api/products", (req, res) => {
     title: req.body.title,
     quantity: req.body.quantity,
     price: req.body.price,
-    vendor: req.body.vendor,
     category: req.body.category,
+    image: req.body.image,
   };
 
   products.push(newProduct);
