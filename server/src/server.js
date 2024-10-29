@@ -227,6 +227,7 @@ let products = [
 // Get all products
 app.get("/api/products", (req, res) => {
   const { category } = req.query;
+  console.log(category);
   let filters = [];
   if (typeof category === "string") {
     filters = [category.toLowerCase()];
@@ -245,6 +246,10 @@ app.get("/api/products", (req, res) => {
   );
 });
 
+app.get("/api/categories", (req, res) => {
+  const categories = [...new Set(products.map((product) => product.category))];
+  res.json(categories);
+});
 // Get a product by ID
 app.get("/api/products/:id", (req, res) => {
   const product = products.find((p) => p.id === parseInt(req.params.id));

@@ -2,11 +2,11 @@ import { useContext } from "react";
 import "./ProductCard.css";
 import { CartContext } from "../../contexts/CartContext";
 import { Box, Button, Stack, Typography } from "../../api/common/components";
-import { AddBoxIcon } from "../../api/common/icons";
+import { AddBoxIcon, SearchIcon } from "../../api/common/icons";
 export default function ProductCard({ product }) {
   const { addToCartProduct } = useContext(CartContext);
   return (
-    <Stack sx={{ width: 1 / 4 }} spacing={{ xs: 4, sm: 6 }}>
+    <Stack sx={{ width: 1 / 4 }} spacing={{ xs: 4, sm: 6 }} border={2} p={5}>
       <Box sx={{ height: "100%" }}>
         <img src={product.image} width="200px" alt="" />
       </Box>
@@ -18,16 +18,28 @@ export default function ProductCard({ product }) {
         </Typography>
         <Typography variant="h5">{product.price}$</Typography>
       </Box>
-      <Button
-        variant="contained"
-        startIcon={<AddBoxIcon></AddBoxIcon>}
-        sx={{
-          backgroundColor: "#050505",
-        }}
-        onClick={() => addToCartProduct(product)}
-      >
-        Add to cart
-      </Button>
+      <Box display={"flex"} justifyContent={"space-between"}>
+        <Button
+          variant="contained"
+          startIcon={<AddBoxIcon></AddBoxIcon>}
+          sx={{
+            backgroundColor: "#050505",
+          }}
+          onClick={() => addToCartProduct(product)}
+        >
+          Add to cart
+        </Button>
+        <Button
+          variant="contained"
+          startIcon={<SearchIcon></SearchIcon>}
+          sx={{
+            backgroundColor: "#050505",
+          }}
+          onClick={() => addToCartProduct(product)}
+        >
+          See Details
+        </Button>
+      </Box>
     </Stack>
   );
 }

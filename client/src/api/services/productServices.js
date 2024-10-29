@@ -10,3 +10,6 @@ export const updateProduct = (id, productPayload) =>
 
 export const deleteProduct = (id) =>
   http.delete(`/api/products/${id}`).then((res) => res.data);
+
+export const getCategory = () =>
+  http.get("/api/categories").then((res) => res.data);

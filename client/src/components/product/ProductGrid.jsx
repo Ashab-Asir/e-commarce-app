@@ -4,24 +4,7 @@ import "./ProductGrid.css";
 import { ProductServices } from "../../api/services";
 import { Box } from "../../api/common/components";
 
-export default function ProductGrid() {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setLoading] = useState(false);
-  const loadProducts = useCallback(async () => {
-    try {
-      setLoading(true);
-      const Products = await ProductServices.getProducts();
-      setProducts(Products);
-    } catch (err) {
-      alert("Failed to load products");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-  useEffect(() => {
-    loadProducts();
-  }, [loadProducts]);
+export default function ProductGrid({ products }) {
   return (
     <Box
       sx={{
@@ -30,13 +13,9 @@ export default function ProductGrid() {
         flexWrap: "wrap",
       }}
     >
-      {isLoading ? (
-        <h1>Loading</h1>
-      ) : (
-        products.map((product) => (
-          <ProductCard key={product.id} product={product}></ProductCard>
-        ))
-      )}
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product}></ProductCard>
+      ))}
     </Box>
   );
 }

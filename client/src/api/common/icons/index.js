@@ -1,3 +1,4 @@
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-export { AddBoxIcon, ShoppingCartIcon };
+import SearchIcon from "@mui/icons-material/Search";
+export { AddBoxIcon, ShoppingCartIcon, SearchIcon };
