@@ -13,16 +13,36 @@ export default function Heading() {
     <AppBar>
       <Toolbar position="sticky">
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Simple Ecommerce
+          <NavLink to="/">
+            <Button
+              sx={{ textDecoration: "none", color: "white", fontSize: "25px" }}
+            >
+              Simple Ecommerce
+            </Button>
+          </NavLink>
         </Typography>
         <NavLink to="/" color="inherit">
-          Home
+          <Button
+            sx={{
+              color: "white",
+            }}
+            mx={2}
+          >
+            Home
+          </Button>
         </NavLink>
         {/* <Button href="/" color="inherit">
             Home
           </Button> */}
         <NavLink to="contactus" color="inherit">
-          ContactUs
+          <Button
+            sx={{
+              color: "white",
+            }}
+            mx={2}
+          >
+            ContactUs
+          </Button>
         </NavLink>
         {/* <Button href="contactus" color="inherit">
             ContactUs
