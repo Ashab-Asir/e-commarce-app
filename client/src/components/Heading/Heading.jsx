@@ -7,7 +7,6 @@ import {
 } from "../../api/common/components";
 import CartMenu from "./CartMenu";
 import ProfileMenu from "./ProfileMenu";
-import { CartProvider } from "../../contexts";
 import { NavLink } from "react-router-dom";
 export default function Heading() {
   return (

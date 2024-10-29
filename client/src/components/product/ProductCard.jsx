@@ -3,10 +3,12 @@ import "./ProductCard.css";
 import { CartContext } from "../../contexts/CartContext";
 import { Box, Button, Stack, Typography } from "../../api/common/components";
 import { AddBoxIcon, SearchIcon } from "../../api/common/icons";
+import { useNavigate } from "react-router-dom";
 export default function ProductCard({ product }) {
   const { addToCartProduct } = useContext(CartContext);
+  const navigate = useNavigate();
   return (
-    <Stack sx={{ width: 1 / 4 }} spacing={{ xs: 4, sm: 6 }} border={2} p={5}>
+    <Stack sx={{ width: 1 / 4 }} spacing={{ xs: 4, sm: 6 }} border={3} p={5}>
       <Box sx={{ height: "100%" }}>
         <img src={product.image} width="200px" alt="" />
       </Box>
@@ -35,7 +37,7 @@ export default function ProductCard({ product }) {
           sx={{
             backgroundColor: "#050505",
           }}
-          onClick={() => addToCartProduct(product)}
+          onClick={() => navigate("/productdetails", { state: { product } })}
         >
           See Details
         </Button>
